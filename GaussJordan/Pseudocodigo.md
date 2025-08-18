@@ -147,6 +147,84 @@ FIN FUNCIÓN
 
 ---
 
+## Pseudocódigo funciones auxiliares (Helpers)
+### Encontrar Pivote
+```
+FUNCIÓN encontrarPivote(matriz, columna, n)
+    max_valor = 0
+    max_fila = -1
+    
+    PARA i = columna HASTA n-1
+        SI abs(matriz[i][columna]) > max_valor ENTONCES
+            max_valor = abs(matriz[i][columna])
+            max_fila = i
+        FIN SI
+    FIN PARA
+    
+    SI max_valor < EPSILON ENTONCES  // EPSILON = tolerancia pequeña
+        RETORNAR -1  // No hay pivote válido
+    FIN SI
+    
+    RETORNAR max_fila
+FIN FUNCIÓN
+```
+
+### Intercambiar Filas
+```
+FUNCIÓN intercambiarFilas(matriz, fila1, fila2, columnas)
+    PARA j = 0 HASTA columnas-1
+        temp = matriz[fila1][j]
+        matriz[fila1][j] = matriz[fila2][j]
+        matriz[fila2][j] = temp
+    FIN PARA
+FIN FUNCIÓN
+```
+
+### Normalizar Fila
+```
+FUNCIÓN normalizarFila(matriz, fila, columnas)
+    pivote = matriz[fila][fila]
+    
+    SI abs(pivote) < EPSILON ENTONCES
+        MOSTRAR "Error: pivote muy pequeño"
+        RETORNAR FALSO
+    FIN SI
+    
+    PARA j = 0 HASTA columnas-1
+        matriz[fila][j] = matriz[fila][j] / pivote
+    FIN PARA
+    
+    RETORNAR VERDADERO
+FIN FUNCIÓN
+```
+
+### Eliminar Elemento
+```
+FUNCIÓN eliminarElemento(matriz, fila_pivote, fila_objetivo, columnas)
+    factor = matriz[fila_objetivo][fila_pivote]
+    
+    PARA j = 0 HASTA columnas-1
+        matriz[fila_objetivo][j] = matriz[fila_objetivo][j] - 
+                                   (factor * matriz[fila_pivote][j])
+    FIN PARA
+FIN FUNCIÓN
+```
+
+### Extraer Soluciones
+```
+FUNCIÓN extraerSoluciones(matriz, n)
+    soluciones = ARREGLO[n]
+    
+    PARA i = 0 HASTA n-1
+        soluciones[i] = matriz[i][n]  // Última columna
+    FIN PARA
+    
+    RETORNAR soluciones
+FIN FUNCIÓN
+```
+
+---
+
 ## Programa principal (interactivo)
 El programa es interactivo y solo finaliza cuando el usuario escribe `salir`.
 
