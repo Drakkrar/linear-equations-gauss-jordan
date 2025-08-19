@@ -31,6 +31,7 @@ Aplicación de consola para resolver sistemas de ecuaciones lineales usando el mé
   Fila 3: 0 3 6
 
 ## Technical documentation
+Para ver mas detalles vaya a: [GaussJordan/docs/Helpers.md](GaussJordan/docs/Helpers.md)
 - Matriz aumentada: m x (n+1).
 - Helpers (GaussJordan/utils/Helpers.cs):
   - FindPivot(matrix, startRow, column, m): busca fila pivote desde startRow (generalizado).
