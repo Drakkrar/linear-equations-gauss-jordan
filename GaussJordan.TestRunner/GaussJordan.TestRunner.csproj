@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-      <_Parameter1>GaussJordan.Tests</_Parameter1>
-    </AssemblyAttribute>
+    <ProjectReference Include="..\GaussJordan\GaussJordan.csproj" />
   </ItemGroup>
 
 </Project>
